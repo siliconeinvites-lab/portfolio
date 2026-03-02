@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silicone Invites | One Link, Infinite Memories</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        :root {
+            --peach: #fdf2f0;
+            --gold: #c5a059;
+            --cream: #fffaf7;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: var(--cream); color: #4a4a4a; overflow-x: hidden; }
+        h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
+        
+        /* Premium Smooth Scroll */
+        html { scroll-behavior: smooth; }
+
+        /* Advanced UI Elements */
+        .nav-glass {
+            background: rgba(255, 250, 247, 0.7);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(197, 160, 89, 0.1);
+        }
+
+        .btn-gold { 
+            background-color: var(--gold); 
+            color: white; 
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transition: all 0.4s ease;
+        }
+        .btn-gold::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+        .btn-gold:hover::before { left: 100%; }
+        .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(197, 160, 89, 0.3); }
+
+        .elegant-card {
+            background: white;
+            border-radius: 40px;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            border: 1px solid rgba(197, 160, 89, 0.05);
+        }
+        .elegant-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(197, 160, 89, 0.1);
+        }
+
+        /* Demo Card Interactions */
+        .demo-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 40px;
+            cursor: pointer;
+        }
+        .demo-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(197, 160, 89, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.4s ease;
+            transform: translateY(20px);
+        }
+        .demo-container:hover .demo-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Floating Animation */
+        .float-anim { animation: floating 3s ease-in-out infinite; }
+        @keyframes floating {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .floating-wa {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 99;
+            transition: all 0.3s ease;
+        }
+        .floating-wa:hover { transform: scale(1.1) rotate(5deg); }
+    </style>
+</head>
+<body>
+
+    <a href="https://wa.me/918310966638?text=Hi%20Silicone%20Invites!%20I'm%20interested." target="_blank" class="floating-wa bg-green-500 text-white p-4 rounded-full shadow-2xl flex items-center justify-center">
+        <i data-lucide="message-circle" class="w-7 h-7"></i>
+    </a>
+
+    <nav class="fixed w-full z-50 py-4 px-6 md:px-12 flex justify-between items-center nav-glass transition-all duration-500">
+        <a href="#" class="flex items-center gap-3 group">
+            <img src="logo.png" alt="Logo" class="h-10 w-auto md:h-12 transition-transform group-hover:rotate-12">
+            <div class="flex flex-col">
+                <span class="text-xl md:text-2xl font-bold serif text-[#c5a059] leading-none">Silicone Invites</span>
+                <span class="text-[10px] uppercase tracking-[0.2em] text-gray-400 mt-1 hidden md:block">One Link, Infinite Memories</span>
+            </div>
+        </a>
+        <div class="hidden lg:flex space-x-10 text-xs uppercase tracking-widest font-semibold text-gray-600">
+            <a href="#about" class="hover:text-[#c5a059] transition-all relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-px after:bg-[#c5a059] hover:after:w-full after:transition-all">About</a>
+            <a href="#services" class="hover:text-[#c5a059] transition-all relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-px after:bg-[#c5a059] hover:after:w-full after:transition-all">Services</a>
+            <a href="#pricing" class="hover:text-[#c5a059] transition-all relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-px after:bg-[#c5a059] hover:after:w-full after:transition-all">Pricing</a>
+            <a href="#demo" class="hover:text-[#c5a059] transition-all relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-px after:bg-[#c5a059] hover:after:w-full after:transition-all">Demos</a>
+        </div>
+        <a href="#connect" class="btn-gold px-8 py-3 rounded-full text-xs font-bold uppercase tracking-widest">Book Now</a>
+    </nav>
+
+    <section class="min-h-screen flex flex-col justify-center items-center text-center px-6 bg-[#fdf2f0] relative overflow-hidden">
+        <div id="hero-circle-1" class="absolute top-[-10%] right-[-5%] w-96 h-96 bg-[#f9f3e5] rounded-full blur-3xl opacity-60"></div>
+        <div id="hero-circle-2" class="absolute bottom-[-10%] left-[-5%] w-80 h-80 bg-pink-100 rounded-full blur-3xl opacity-50"></div>
+        
+        <div class="relative z-10 hero-content">
+            <span class="text-[#c5a059] uppercase tracking-[0.4em] text-xs mb-6 block font-bold" data-aos="fade-down">Premium Digital Stationery</span>
+            <h1 class="text-6xl md:text-9xl mb-6 leading-tight" data-aos="zoom-out" data-aos-delay="200">Silicone Invites</h1>
+            <p class="text-2xl md:text-4xl italic serif text-[#c5a059] mb-8" data-aos="fade-up" data-aos-delay="400">“One Link, Infinite Memories”</p>
+            <p class="max-w-2xl mx-auto text-gray-500 mb-12 text-lg leading-relaxed" data-aos="fade-up" data-aos-delay="600">
+                Transforming your special moments into interactive digital legacies that your guests will treasure forever.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center" data-aos="fade-up" data-aos-delay="800">
+                <a href="#connect" class="btn-gold px-14 py-5 rounded-full text-sm font-bold shadow-2xl">Start Your Design</a>
+                <a href="#demo" class="bg-white border-2 border-[#c5a059] text-[#c5a059] px-14 py-5 rounded-full text-sm font-bold hover:bg-[#c5a059] hover:text-white transition-all">View Showcase</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-40 px-6 bg-white overflow-hidden">
+        <div class="max-w-5xl mx-auto flex flex-col items-center">
+            <div class="float-anim mb-10">
+                <div class="p-5 bg-[#fdf2f0] rounded-full inline-block">
+                    <i data-lucide="sparkles" class="text-[#c5a059] w-8 h-8"></i>
+                </div>
+            </div>
+            <h2 class="text-5xl md:text-7xl mb-12 text-center" data-aos="reveal-up">Digital Elegance</h2>
+            <p class="text-2xl md:text-3xl leading-relaxed text-gray-600 serif text-center max-w-4xl" data-aos="fade-up">
+                We bridge the gap between tradition and technology. Silicone Invites crafts interactive wedding, birthday, baby shower and any of your special occasion's websites that open instantly—no app needed, just one magical link.
+            </p>
+        </div>
+    </section>
+
+    <section id="services" class="py-32 px-6 md:px-20 bg-[#f9f3e5]">
+        <div class="text-center mb-24">
+            <h2 class="text-5xl md:text-6xl mb-6">The Collection</h2>
+            <div class="w-24 h-1 bg-[#c5a059] mx-auto opacity-30"></div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 max-w-7xl mx-auto">
+            <div class="elegant-card p-12 text-center group" data-aos="fade-up" data-aos-delay="100">
+                <div class="w-20 h-20 bg-[#fdf2f0] rounded-2xl flex items-center justify-center mx-auto mb-8 transition-all group-hover:rotate-[360deg] duration-1000">
+                    <i data-lucide="gem" class="text-[#c5a059] w-10 h-10"></i>
+                </div>
+                <h3 class="text-3xl mb-4">Weddings</h3>
+                <p class="text-gray-500 leading-relaxed">Multi-page itineraries with RSVP, maps, and music for the ultimate celebration.</p>
+            </div>
+            <div class="elegant-card p-12 text-center group" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-20 h-20 bg-[#fdf2f0] rounded-2xl flex items-center justify-center mx-auto mb-8 transition-all group-hover:scale-110">
+                    <i data-lucide="cake" class="text-[#c5a059] w-10 h-10"></i>
+                </div>
+                <h3 class="text-3xl mb-4">Birthdays</h3>
+                <p class="text-gray-500 leading-relaxed">Joyful, interactive cards featuring animated photo galleries and guest messages.</p>
+            </div>
+            <div class="elegant-card p-12 text-center group" data-aos="fade-up" data-aos-delay="300">
+                <div class="w-20 h-20 bg-[#fdf2f0] rounded-2xl flex items-center justify-center mx-auto mb-8 transition-all group-hover:bg-[#c5a059] group-hover:text-white">
+                    <i data-lucide="baby" class="text-[#c5a059] w-10 h-10 transition-colors group-hover:text-white"></i>
+                </div>
+                <h3 class="text-3xl mb-4">Baby Showers</h3>
+                <p class="text-gray-500 leading-relaxed">Soft, artistic designs to announce your little one's arrival to the world.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="py-40 px-6 bg-white">
+        <div class="text-center mb-24">
+            <h2 class="text-6xl mb-6">Investment</h2>
+            <p class="text-gray-400 serif italic">Tailored packages for your priceless moments</p>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 max-w-7xl mx-auto items-center">
+            <div class="p-12 rounded-[50px] bg-gray-50 border border-gray-100 text-center" data-aos="fade-right">
+                <h3 class="text-2xl mb-4">Basic</h3>
+                <div class="text-5xl font-bold mb-8">₹999</div>
+                <ul class="text-gray-500 space-y-6 text-sm mb-12">
+                    <li>1 Page Experience</li>
+                    <li>3 Signature Photos</li>
+                    <li>Background Music</li>
+                    <li>Forever Link</li>
+                </ul>
+                <a href="#connect" class="block w-full py-4 border border-[#c5a059] text-[#c5a059] rounded-full font-bold hover:bg-[#c5a059] hover:text-white transition">Choose Basic</a>
+            </div>
+            <div class="p-16 rounded-[60px] bg-white ring-1 ring-[#c5a059] shadow-[0_50px_100px_rgba(197,160,89,0.15)] text-center relative z-10 scale-110" data-aos="zoom-in">
+                <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#c5a059] text-white px-10 py-2 rounded-full text-xs font-bold tracking-widest uppercase shadow-lg">Our Masterpiece</div>
+                <h3 class="text-3xl mb-4">Premium</h3>
+                <div class="text-6xl font-bold mb-10 text-[#c5a059]">₹5,499</div>
+                <ul class="text-gray-600 space-y-6 text-base mb-14">
+                    <li class="font-bold">Full Bespoke Website</li>
+                    <li>Guest Management Dashboard</li>
+                    <li>Cinematic Video Integration</li>
+                    <li>Unlimited Memories (Photos)</li>
+                    <li>Exclusive Themes</li>
+                </ul>
+                <a href="#connect" class="block w-full btn-gold py-5 rounded-full font-bold text-lg">Select Premium</a>
+            </div>
+            <div class="p-12 rounded-[50px] bg-gray-50 border border-gray-100 text-center" data-aos="fade-left">
+                <h3 class="text-2xl mb-4">Standard</h3>
+                <div class="text-5xl font-bold mb-8">₹2,499</div>
+                <ul class="text-gray-500 space-y-6 text-sm mb-12">
+                    <li>Multi-Section Layout</li>
+                    <li>RSVP Integration</li>
+                    <li>10 Curated Photos</li>
+                    <li>Premium Playlist</li>
+                </ul>
+                <a href="#connect" class="block w-full py-4 border border-[#c5a059] text-[#c5a059] rounded-full font-bold hover:bg-[#c5a059] hover:text-white transition">Choose Standard</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="demo" class="py-32 px-6 bg-white">
+        <div class="text-center mb-24">
+            <h2 class="text-5xl mb-6">Live Showcase</h2>
+            <p class="text-gray-400">Click a card to experience the live invitation</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-7xl mx-auto">
+            
+            <div class="demo-container group" onclick="window.open('https://siliconeinvites-lab.github.io/weddingdemo/', '_blank')">
+                <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80" alt="Wedding Demo" class="w-full h-[500px] object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="demo-overlay">
+                    <div class="text-center text-white p-6">
+                        <i data-lucide="external-link" class="w-12 h-12 mx-auto mb-4"></i>
+                        <h4 class="text-2xl serif mb-2">The Royal Wedding</h4>
+                        <p class="text-sm opacity-80">Experience the Full Demo</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-container group" onclick="window.open('https://siliconeinvites-lab.github.io/birthday-demo/', '_blank')">
+                <img src="https://images.unsplash.com/photo-1530103043960-ef38714abb15?auto=format&fit=crop&w=800&q=80" alt="Birthday Demo" class="w-full h-[500px] object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="demo-overlay">
+                    <div class="text-center text-white p-6">
+                        <i data-lucide="external-link" class="w-12 h-12 mx-auto mb-4"></i>
+                        <h4 class="text-2xl serif mb-2">Celebration of Life</h4>
+                        <p class="text-sm opacity-80">Experience the Full Demo</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-container group" onclick="window.open('Phttps://siliconeinvites-lab.github.io/Baby-shower-demo/', '_blank')">
+                <img src="https://images.unsplash.com/photo-1519751138087-5bf79df62d5b?auto=format&fit=crop&w=800&q=80" alt="Baby Shower Demo" class="w-full h-[500px] object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="demo-overlay">
+                    <div class="text-center text-white p-6">
+                        <i data-lucide="external-link" class="w-12 h-12 mx-auto mb-4"></i>
+                        <h4 class="text-2xl serif mb-2">New Beginnings</h4>
+                        <p class="text-sm opacity-80">Experience the Full Demo</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="connect" class="py-40 px-6 bg-[#f9f3e5] relative overflow-hidden">
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <h2 class="text-6xl mb-10">Ready to start?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <a href="https://www.instagram.com/silicone_invites?igsh=MWRsNDZoeXh1Mms3Mw==" target="_blank" class="elegant-card p-14 group">
+                    <i data-lucide="instagram" class="w-14 h-14 mx-auto mb-6 text-[#c5a059] group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-2xl mb-4 font-bold">Instagram</h3>
+                    <p class="text-gray-400">View our daily design stories</p>
+                </a>
+                <a href="https://wa.me/918310966638" target="_blank" class="elegant-card p-14 group">
+                    <i data-lucide="message-circle" class="w-14 h-14 mx-auto mb-6 text-green-500 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-2xl mb-4 font-bold">WhatsApp</h3>
+                    <p class="text-gray-400">Instant chat & fast booking</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-white py-20 px-6 border-t border-gray-100">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10 text-center">
+            <div class="text-left">
+                <h2 class="text-3xl serif text-[#c5a059]">Silicone Invites</h2>
+                <p class="text-gray-400 text-xs tracking-widest mt-2 uppercase">One Link, Infinite Memories</p>
+            </div>
+            <div class="flex gap-8">
+                <a href="mailto:siliconeinvites@gmail.com" class="text-gray-400 hover:text-[#c5a059] transition-all">Email Us</a>
+                <a href="#about" class="text-gray-400 hover:text-[#c5a059] transition-all">About</a>
+                <a href="#demo" class="text-gray-400 hover:text-[#c5a059] transition-all">Portfolio</a>
+            </div>
+            <p class="text-xs text-gray-300 uppercase tracking-widest">&copy; 2026 Silicone Invites. Bengaluru.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true, duration: 1000 });
+        lucide.createIcons();
+
+        // GSAP - Premium Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Parallax Circles in Hero
+        gsap.to("#hero-circle-1", {
+            scrollTrigger: { scrub: true },
+            x: 200, y: 100
+        });
+        gsap.to("#hero-circle-2", {
+            scrollTrigger: { scrub: true },
+            x: -150, y: -50
+        });
+
+        // Sticky Nav logic
+        window.onscroll = function() {
+            const nav = document.querySelector('nav');
+            if (window.pageYOffset > 50) {
+                nav.style.padding = "0.75rem 1.5rem";
+                nav.style.backgroundColor = "rgba(255, 250, 247, 0.95)";
+                nav.style.boxShadow = "0 10px 40px rgba(197, 160, 89, 0.08)";
+            } else {
+                nav.style.padding = "1.5rem";
+                nav.style.backgroundColor = "rgba(255, 250, 247, 0.7)";
+                nav.style.boxShadow = "none";
+            }
+        };
+    </script>
+</body>
+</html>
